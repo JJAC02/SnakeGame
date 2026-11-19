@@ -1,0 +1,48 @@
+[gd_resource type="TileSet" format=3 uid="uid://ber6qoj0bllhm"]
+
+[ext_resource type="Texture2D" uid="uid://c7nhxp2ulhfny" path="res://assests/Snake_spritesheet.png" id="1_87vbj"]
+[ext_resource type="Texture2D" uid="uid://dcbkbovxa8eox" path="res://assests/apple.png" id="2_pdxcs"]
+[ext_resource type="Texture2D" uid="uid://bduvols0md0sk" path="res://assests/grass.png" id="3_025wv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
+resource_name = "snake"
+texture = ExtResource("1_87vbj")
+texture_region_size = Vector2i(40, 40)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
+texture = ExtResource("2_pdxcs")
+texture_region_size = Vector2i(40, 40)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtaks"]
+texture = ExtResource("3_025wv")
+texture_region_size = Vector2i(40, 40)
+use_texture_padding = false
+0:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+
+[resource]
+tile_size = Vector2i(40, 40)
+sources/0 = SubResource("TileSetAtlasSource_gee14")
+sources/1 = SubResource("TileSetAtlasSource_0tnpc")
+sources/2 = SubResource("TileSetAtlasSource_vtaks")
