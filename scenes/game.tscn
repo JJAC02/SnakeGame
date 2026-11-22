@@ -1,18 +1,30 @@
 [gd_scene format=3 uid="uid://yicge48108e0"]
 
 [ext_resource type="Script" uid="uid://b0ty32plikcic" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://bduvols0md0sk" path="res://assests/grass.png" id="2_0tnpc"]
 [ext_resource type="TileSet" uid="uid://ber6qoj0bllhm" path="res://assests/gametileset.tres" id="2_u5sy4"]
 [ext_resource type="Script" uid="uid://nn7c6a36qpyq" path="res://scripts/game_area.gd" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://u8ygxctn5obx" path="res://scenes/main_menu.tscn" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bf84qsd0xxrct" path="res://scenes/end_scene.tscn" id="6_u5sy4"]
 [ext_resource type="Script" uid="uid://biajxgltu3dav" path="res://scripts/snake.gd" id="6_vtaks"]
 [ext_resource type="Script" uid="uid://5jpw50aylpfq" path="res://scripts/environment.gd" id="7_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://chfk2bh56wsuc" path="res://scenes/in_game.tscn" id="8_gee14"]
 
 [node name="Game" type="Node" unique_id=1607823543]
 script = ExtResource("1_lbhrr")
 
+[node name="GameBG" type="TextureRect" parent="." unique_id=933399816]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0tnpc")
+stretch_mode = 1
+
 [node name="GameArea" type="TileMapLayer" parent="." unique_id=1565270955]
-position = Vector2(0, 200)
+position = Vector2(0, 100)
 tile_set = ExtResource("2_u5sy4")
 rendering_quadrant_size = 40
 navigation_enabled = false
@@ -40,10 +52,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="InGame" type="Control" parent="HUD" unique_id=1398480594]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="InGame" parent="HUD" unique_id=358935348 instance=ExtResource("8_gee14")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

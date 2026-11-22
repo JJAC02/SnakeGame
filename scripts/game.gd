@@ -8,10 +8,22 @@ var apple_pos:Vector2i
 var snake_body:Array[Vector2i] = []
 var snake_direction:Vector2i
 var next_direction:Vector2i
+var is_paused := false
 
 @onready var board: TileMapLayer = $GameArea
 @onready var snake: Node2D = $Snake
 @onready var timer: Timer = $Timer
+@onready var main_menu: Control = $HUD/MainMenu
+@onready var in_game: Control = $HUD/InGame
+
+
+
+func new_game() -> void:
+	in_game.show()
+	main_menu.hide()
+	board.show()
+	draw_board()
+	
 
 
 func iniateGame() -> void:
@@ -23,10 +35,13 @@ func iniateGame() -> void:
 	
 
 func _ready() -> void:
+	main_menu.new_game.connect(new_game)
+	main_menu.show()
+	board.hide()
+	in_game.hide()
 	randomize()
 	iniateGame()
 	#apple_pos = place_apple()
-	draw_board()
 
 func place_apple() -> Vector2i:
 	var available:= []
@@ -57,11 +72,6 @@ func draw_board()-> void:
 	##pass
 
 func move_snake():
-	#shrink_snake(SNAKE)
-	#var body_copy = snake_body.slice(0,snake_body.size() - 1)
-	#var new_head = body_copy[0] + snake_direction
-	#body_copy.insert(0,new_head)
-	#snake_body = body_copy
 	snake_direction = next_direction
 	snake_eat(grow_snake())
 	if is_game_over():

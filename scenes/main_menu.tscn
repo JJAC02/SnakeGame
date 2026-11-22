@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://u8ygxctn5obx"]
 
+[ext_resource type="Script" uid="uid://ynfmmly7b4if" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+
 [node name="MainMenu" type="Control" unique_id=1965709317]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_l6cm7")
+
+[node name="NewGame" type="Button" parent="." unique_id=1485675765]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 306.0
+offset_right = 565.0
+offset_bottom = 377.0
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="." unique_id=1701206458]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 413.0
+offset_right = 561.0
+offset_bottom = 484.0
+text = "Load Game"
+
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LoadGame" to="." method="_on_load_game_pressed"]
