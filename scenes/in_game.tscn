@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://chfk2bh56wsuc"]
 
 [ext_resource type="Script" uid="uid://b5aplio8u2vgk" path="res://scenes/in_game.gd" id="1_7nptk"]
+[ext_resource type="TileSet" uid="uid://ber6qoj0bllhm" path="res://assests/gametileset.tres" id="2_cela1"]
+[ext_resource type="Script" uid="uid://nn7c6a36qpyq" path="res://scripts/game_area.gd" id="3_or4b6"]
+[ext_resource type="Script" uid="uid://biajxgltu3dav" path="res://scripts/snake.gd" id="4_6nh0b"]
+[ext_resource type="Script" uid="uid://5jpw50aylpfq" path="res://scripts/environment.gd" id="5_r6ttu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4e07j"]
 bg_color = Color(3.5616756e-06, 0.47652632, 0.68581307, 1)
@@ -49,3 +53,24 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_1jffy")
 text = "TIME: 00:00"
 vertical_alignment = 1
+
+[node name="GameArea" type="TileMapLayer" parent="." unique_id=459207095]
+position = Vector2(0, 100)
+tile_set = ExtResource("2_cela1")
+rendering_quadrant_size = 40
+navigation_enabled = false
+script = ExtResource("3_or4b6")
+
+[node name="Timer" type="Timer" parent="." unique_id=1121439873]
+wait_time = 0.1
+autostart = true
+
+[node name="Snake" type="Node2D" parent="." unique_id=738011593]
+position = Vector2(0, 100)
+script = ExtResource("4_6nh0b")
+
+[node name="Environment" type="Node2D" parent="." unique_id=656116035]
+position = Vector2(0, 100)
+script = ExtResource("5_r6ttu")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
