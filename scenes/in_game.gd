@@ -14,8 +14,7 @@ var is_paused := false
 @onready var board: TileMapLayer = $GameArea
 @onready var timer: Timer = $Timer
 @onready var environment: Node2D = $Environment
-
-
+@onready var snake: Node2D = $Snake
 
 func iniateGame() -> void:
 	apple_pos = Vector2i( 9,10)
@@ -28,7 +27,6 @@ func iniateGame() -> void:
 func _ready() -> void:
 	randomize()
 	iniateGame()
-	#apple_pos = place_apple()
 	draw_board()
 
 func place_apple() -> Vector2i:
@@ -112,8 +110,6 @@ func end_game():
 
 func _on_timer_timeout() -> void:
 	move_snake()
-	#draw_apple()
-	#draw_snake()
 
 func try_direction(direction:Vector2i)->void:
 	if direction != -snake_direction:
@@ -131,5 +127,4 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	print(delta)
 	pass
